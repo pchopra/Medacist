@@ -14,6 +14,7 @@ Template.input.events = {
     'keydown input#message' : function (event) {
         if (event.which == 13) { // 13 is the enter key event
             
+            console.log( Roles.getRolesForUser(Meteor.userId()) );
             var userId = Meteor.userId();
             var date = new Date( Date.now() ); 
             
