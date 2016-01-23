@@ -5,7 +5,7 @@ Template.login.events({
 
         Meteor.loginWithPassword(email, password, function(error) {            
             if (Meteor.user()) {
-                Router.go('userRoom', { userId: Meteor.userId() });
+                Router.go('userRoom', { roomId: Meteor.userId() });
             } else {
                 var message = "Erro: <strong>" + error.reason + "</strong>";
                 $('#form-messages').html(message);

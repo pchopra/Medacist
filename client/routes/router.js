@@ -16,7 +16,7 @@ Router.route('/room');
 
 Router.map(function() {
 
-    this.route('/room/:userId', {
+    this.route('/room/:roomId', {
         name: "userRoom",
         template: "room",
         //waitOn: function() {

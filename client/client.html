@@ -36,7 +36,7 @@
 
             <ul class="nav navbar-nav">
                 {{#if currentUser}}
-                    <li><a href="{{pathFor route='userRoom' username=userId }}">Room</a></li>
+                    <li><a href="{{pathFor route='userRoom' roomId=userId }}">Room</a></li>
                     {{#if isInRole 'administrator'}}
                       <li><a href="{{pathFor route='analytics'}}">Analytics</a></li>
                     {{/if}}
