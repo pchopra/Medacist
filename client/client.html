@@ -36,10 +36,15 @@
 
             <ul class="nav navbar-nav">
                 {{#if currentUser}}
-                    <li><a href="{{pathFor route='userRoom' roomId=userId }}">Room</a></li>
+                
+                    {{#if isInRole 'patient' 'physician' 'assistant'}}
+                      <li><a href="{{pathFor route='userRoom' roomId=userId }}">Room</a></li>
+                    {{/if}}
+
                     {{#if isInRole 'administrator'}}
                       <li><a href="{{pathFor route='analytics'}}">Analytics</a></li>
                     {{/if}}
+
                 {{/if}}
             </ul>
           

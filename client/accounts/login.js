@@ -5,8 +5,11 @@ Template.login.events({
 
         Meteor.loginWithPassword(email, password, function(error) {            
             if (Meteor.user()) {
-                Roles.addUsersToRoles(Meteor.userId(), [Meteor.user().profile.role] );
-                Router.go('userRoom', { roomId: Meteor.userId() });
+                if(Meteor.user().profile.role != 'administrator') {
+                    Router.go('userRoom', { roomId: Meteor.userId() });
+                } else {
+                    Router.go('home');
+                }
             } else {
                 var message = "Erro: <strong>" + error.reason + "</strong>";
                 $('#form-messages').html(message);
