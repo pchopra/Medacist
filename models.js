@@ -1,4 +1,5 @@
 /**
 * Create new collection if not present.
 */
-Messages = new Meteor.Collection('messages');
+Messages = new Mongo.Collection('messages');
+Rooms = new Mongo.Collection('rooms');
