@@ -14,17 +14,23 @@ Router.route('/room');
 * Templates
 */
 if (Meteor.isClient) {
+
     Template.messages.helpers({
         messages: function() {
             return Messages.find({}, { sort: { time: -1}});
         }
     });
 
-    Template.test.events({
+
+    Template.test.events = {
       'click .newRoom': function() {
-        console.log( $('.username').val() );
+
+        Rooms.insert({
+          hospitalID: 'default',
+          name: $('.username').val(), 
+        });
       }
-    });
+    },
 
     Template.input.events = {
       'keydown input#message' : function (event) {
@@ -47,7 +53,6 @@ if (Meteor.isClient) {
         }
       }
     }
-
     
     Template.register.events({
         'submit form': function(event){
@@ -74,7 +79,5 @@ if (Meteor.isClient) {
         }
     });
     
-    
-
 
 }

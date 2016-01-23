@@ -77,12 +77,22 @@
     <li><a href="{{pathFor route='home'}}">Home</a></li>
     <li><a href="{{pathFor route='register'}}">Register</a></li>
     
-    
   </ul>
 </template>
 
+
+<template name="newPatient">
+  <p>
+    Please Enter New Patient Information
+  </p>
+  <input type="text" class="username" placeholder="Name">
+  <button class="newRoom"><a href="{{pathFor route='room'}}">ADD NEW ROOM</a></button>
+</template>
+
+<body></body>
+
 <template name="home">
-  <p>Medacist Home</p>
+  {{> newPatient}}
 </template>
 
 <template name="register">
