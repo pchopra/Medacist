@@ -1,0 +1,9 @@
+<template name="messages">
+    <div class="message-history">
+        {{#each messages}}
+            {{> message text=text name=name hour=hour minute=minute}}
+            <br>
+        {{/each}}
+    </div>
+</template>
+	
