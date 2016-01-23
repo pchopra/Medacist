@@ -1,0 +1,16 @@
+<template name="room">
+    <h1 class="pageTitle">Chat</h1>
+      
+    <div>
+    {{> messages }}
+    </div>
+    <div>
+    {{> input }} 
+    </div>
+</template>
+
+<template name="input">
+  <div class="form-group">
+    <input class="form-control" placeholder="Enter message" id="message" type="text">
+  </div>
+</template>
