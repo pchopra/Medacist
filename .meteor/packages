@@ -22,3 +22,5 @@ accounts-ui
 iron:router
 twbs:bootstrap
 accounts-password
+accounts-base
+alanning:roles
