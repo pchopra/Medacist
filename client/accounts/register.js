@@ -29,9 +29,10 @@ Template.register.events({
               var bool = Roles.userIsInRole( Meteor.userId(), 'Administrator'); // true
               console.log("Original: " + Roles.getRolesForUser(Meteor.userId()) );
               console.log("Result: " + bool);
+              Router.go('/room');
             }
           });
 
-      Router.go('/room');
+      
   }
 });
