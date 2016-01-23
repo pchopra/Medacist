@@ -2,18 +2,7 @@
   <title>Meteor Chat Application.</title>
 </head>
 
-<body>  
-  <h1>Chatapp</h1>
-  {{> welcome }}
-  {{> messages }}
-  {{> input }}
-</body>
-
-<template name="welcome">
-  <p>
-    Let's chat today.
-  </p>
-</template>
+<body></body>
 
 <template name="messages">
   {{#each messages}}
@@ -23,5 +12,73 @@
 
 <template name="input">
   <p>Message: <input type="text" id="message"></p>
+</template>
 
+<template name="main">
+  
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="{{pathFor route='home'}}">Medacist</a>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav">
+
+            <li><a href="{{pathFor route='room'}}">Room</a></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{pathFor route='login'}}">Login</a></li>
+            <li>{{> loginButtons}}</li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+      {{> yield}}
+      <hr />
+      <p>Copyright &copy; Medacist, 2016.</p>
+    </div>
+</template>
+
+<template name="navigation">
+  <ul>
+    <li><a href="{{pathFor route='home'}}">Home</a></li>
+    <li><a href="{{pathFor route='register'}}">Register</a></li>
+    
+    
+  </ul>
+</template>
+
+<template name="home">
+  <p>Medacist Home</p>
+</template>
+
+<template name="register">
+  <h2>Register</h2>
+</template>
+
+<template name="login">
+  <h2>Login</h2>
+</template>
+
+
+<template name="room">
+  <h1>Chat</h1>
+  {{> messages }}
+  {{> input }}  
 </template>
