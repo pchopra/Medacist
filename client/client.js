@@ -1,6 +1,4 @@
 if (Meteor.isClient) {
-<<<<<<< Updated upstream
-=======
 
     Template.messages.helpers({
         messages: function() {
@@ -8,7 +6,6 @@ if (Meteor.isClient) {
         }
     });
 
->>>>>>> Stashed changes
     Template.input.events = {
       'keydown input#message' : function (event) {
         if (event.which == 13) { // 13 is the enter key event
@@ -30,9 +27,6 @@ if (Meteor.isClient) {
         }
       }
     }
-<<<<<<< Updated upstream
-  
-=======
     
     Template.register.events({
         'submit form': function(event){
@@ -60,7 +54,6 @@ if (Meteor.isClient) {
       }
     });
 
->>>>>>> Stashed changes
     Template.main.events({
         'click .logout': function(event){
             event.preventDefault();
