@@ -38,8 +38,6 @@ Template.input.events = {
                     name: name,
                     text: message,
                     created_at: date,
-                    hour: date.getHours(),
-                    minute: date.getMinutes()
                 });
                 $('#message').val('');
             }
