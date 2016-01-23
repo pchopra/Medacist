@@ -17,6 +17,20 @@ Template.register.events({
               group: group,
               role: userType  
             }
+          });
+
+        
+
+      /*
+      Accounts.createUser({
+          //username: name,
+            email: email,
+            password: password,
+            profile: {
+              name: name,
+              group: group,
+              role: userType  
+            }
           },  
           function(err) {
             if(err) {
@@ -36,6 +50,6 @@ Template.register.events({
             }
           });
 
-      
+        */
   }
 });
