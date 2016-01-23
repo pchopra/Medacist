@@ -1,0 +1,11 @@
+
+.type-user {
+    display: inline;
+	text-align: center;
+	font-size: 110%;
+	width: auto;
+}
+
+input[type="radio"]{
+  margin: 0 0px 0 10px;
+}
