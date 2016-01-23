@@ -1,10 +1,8 @@
 Template.messages.helpers({
     messages: function() {
-        return Messages.find({userId: Router.current().params.userId}, { sort: { time: -1}});
-        //return Messages.find({}, { sort: { time: -1}});
+        return Messages.find({roomId: Router.current().params.userId}, { sort: { time: -1}});
     }
 });
-
 
 Template.input.events = {
     'keydown input#message' : function (event) {
@@ -16,14 +14,14 @@ Template.input.events = {
             if (Meteor.user()) {
                 var name = Meteor.user().profile.name;
             } else {
-                var name = 'Anonymous';
+                var name = 'Anonymous'; //should we allow?
             }
             
             var message = $('#message').val();
             
             if (message != '') {
                 Messages.insert({
-                    userId: userId,
+                    roomId: userId,
                     name: name,
                     text: message,
                     hour: date.getHours(),
