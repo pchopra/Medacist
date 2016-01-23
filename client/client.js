@@ -1,26 +1,4 @@
-// Routes
-Router.configure({
-  layoutTemplate: 'main'
-});
-Router.route('/', {
-  name: 'home',
-  template: 'home'
-});
-Router.route('/register');
-Router.route('/login');
-Router.route('/room');
-Router.route('/analytics');
-
-/**
-* Templates
-*/
 if (Meteor.isClient) {
-    Template.messages.helpers({
-        messages: function() {
-            return Messages.find({}, { sort: { time: -1}});
-        }
-    });
-
     Template.input.events = {
       'keydown input#message' : function (event) {
         if (event.which == 13) { // 13 is the enter key event
@@ -42,21 +20,6 @@ if (Meteor.isClient) {
         }
       }
     }
-    
-    Template.register.events({
-        'submit form': function(event){
-            event.preventDefault();
-            var email = $('[name=email]').val();
-            var password = $('[name=password]').val();
-
-            Accounts.createUser({
-                email: email,
-                password: password
-            });
-
-            Router.go('/room');
-        }
-    });
   
     Template.main.events({
         'click .logout': function(event){
