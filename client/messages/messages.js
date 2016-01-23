@@ -1,3 +1,5 @@
+Meteor.subscribe("messages", Meteor.user().profile.role);
+
 Template.messages.helpers({
     currentUser_messages: function() {
         return Messages.find({roomId: Router.current().params.roomId, userId: Meteor.userId()}, { sort: { time: -1}});
