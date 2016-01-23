@@ -9,28 +9,17 @@ Router.route('/', {
 Router.route('/register');
 Router.route('/login');
 Router.route('/room');
+Router.route('/analytics');
 
 /**
 * Templates
 */
 if (Meteor.isClient) {
-
     Template.messages.helpers({
         messages: function() {
             return Messages.find({}, { sort: { time: -1}});
         }
     });
-
-
-    Template.test.events = {
-      'click .newRoom': function() {
-
-        Rooms.insert({
-          hospitalID: 'default',
-          name: $('.username').val(), 
-        });
-      }
-    },
 
     Template.input.events = {
       'keydown input#message' : function (event) {
@@ -72,10 +61,8 @@ if (Meteor.isClient) {
     Template.main.events({
         'click .logout': function(event){
             event.preventDefault();
-            Meteor.logout(function() {
-              // Redirect to login
-              Router.go('/login');
-            });
+            Meteor.logout();
+            Router.go('home');
         }
     });
     
