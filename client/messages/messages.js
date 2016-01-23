@@ -3,7 +3,7 @@ Template.messages.helpers({
         return Messages.find({roomId: Router.current().params.roomId, userId: Meteor.userId()}, { sort: { time: -1}});
     },
     otherUser_messages: function() {
-        return Messages.find({roomId: Router.current().params.roomId, userId: !Meteor.userId()}, { sort: { time: -1}});
+        return Messages.find({roomId: Router.current().params.roomId, userId: {$ne: Meteor.userId()} }, { sort: { time: -1}});
     },
     userId: function() {
         return Meteor.userId();

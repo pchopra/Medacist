@@ -11,4 +11,4 @@ Meteor.users.after.insert(function (userId, doc) {
     } else if (doc.profile.role === "patient") {
         Roles.addUsersToRoles(doc._id, "patient")
     }
-});
+})
