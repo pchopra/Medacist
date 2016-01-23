@@ -31,6 +31,7 @@ Template.input.events = {
                     userId: Meteor.userId(),
                     name: name,
                     text: message,
+                    created_at: date,
                     hour: date.getHours(),
                     minute: date.getMinutes()
                 });

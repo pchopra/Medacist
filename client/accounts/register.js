@@ -26,7 +26,7 @@ Template.register.events({
               //var type = $('input[name="type"]:checked').val();
               console.log( $('input[name=type-user1]:checked').val() );
               Roles.addUsersToRoles(Meteor.userId(), [ $('input[name=type-user1]:checked').val() ]);
-              var bool = Roles.userIsInRole( Meteor.userId(), 'Administrator'); // true
+              var bool = Roles.userIsInRole( Meteor.userId(), 'administrator'); // true
               console.log("Original: " + Roles.getRolesForUser(Meteor.userId()) );
               console.log("Result: " + bool);
               console.log("UserId: " + Meteor.userId());
