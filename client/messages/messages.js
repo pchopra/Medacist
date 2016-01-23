@@ -34,7 +34,7 @@ Template.input.events = {
             
             if (message != '') {
                 Messages.insert({
-                    roomId: userId,
+                    roomId: Router.current().params.roomId,
                     userId: Meteor.userId(),
                     name: name,
                     text: message,

@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-md-6">
             {{#each currentUser_messages}}
-                {{> message text=text name=name created_at=created_at hour=hour minute=minute}}
+                {{> message text=text name=name created_at=created_at}}
             {{/each}}
         </div>
         <div class="col-md-6">
             {{#each otherUser_messages}}
-                {{> message text=text name=name created_at=created_at hour=hour minute=minute}}
+                {{> message text=text name=name created_at=created_at}}
             {{/each}}
         </div>
     </div>
