@@ -16,18 +16,3 @@ Meteor.users.after.insert(function (userId, doc) {
     	Roles.addUsersToRoles(doc._id, "physician") 
     } 
 })
-
-if (Meteor.isServer) {
-  // This code only runs on the server
-  Meteor.publish("messages", function (role) {
-    switch(role) {
-        case 'assistant':
-            return Messages.find();
-        case 'patient':
-            return Messages.find({roomId: this.userId()});
-        default:
-            return false;
-    }
-
-  });
-}
