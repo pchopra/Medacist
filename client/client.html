@@ -1,7 +1,6 @@
 <head>
-  <title>Meteor Chat Application.</title>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <title>Medacist</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Arvo' rel='stylesheet' type='text/css'>
 </head>
 
 <body>  
@@ -40,22 +39,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-          <ul class="nav navbar-nav">
-            {{#if currentUser}}
-            <li><a href="{{pathFor route='room'}}">Room</a></li>
-            <li><a href="{{pathFor route='analytics'}}">Analytics</a></li>
-            {{/if}}
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            {{#if currentUser}}
-                <li><a href="#" class="logout">Logout</a></li>
-            {{else}}
-                <li><a href="{{pathFor route='login'}}">Log In</a></li>
-                <li><a href="{{pathFor route='register'}}">Register</a></li>
-            {{/if}}
-            
-          </ul>
+            <ul class="nav navbar-nav">
+                {{#if currentUser}}
+                    <li><a href="{{pathFor route='room'}}">Room</a></li>
+                    <li><a href="{{pathFor route='analytics'}}">Analytics</a></li>
+                {{/if}}
+            </ul>
+          
+            <p class="navbar-text navbar-right">
+                {{#if currentUser}}
+                    Signed in as {{name}} | 
+                    <a href="#" class="logout navbar-link">Logout</a>
+                {{else}}
+                    <a href="{{pathFor route='login'}}" class="navbar-link">Log In</a>
+                    <a href="{{pathFor route='register'}}" class="navbar-link">Register</a>
+                {{/if}}
+            </p>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -97,33 +96,6 @@
   {{> newPatient}}
 </template>
 
-<template name="register">
-  <h2>Register</h2>
-  
-  <form class="register">
-    <p>Email: <input type="email" name="email"></p>
-    <p>Password: <input type="password" name="password"></p>
-    <p><input type="submit" value="Register"></p>
-  </form>
-</template>
-
-<template name="login">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 col-lg-offset-4">
-      <h2>Log In</h2>
-      <form id="login-form" action="action">
-        <div>
-          <input type="email" id="login-email" placeholder="Username"/>
-          <input type="password" id="login-password" placeholder="Password"/>
-          <input type="submit" id="login-button" value="Sign in" />
-       </div>
-      </form> 
-      </div>
-    </div>
-  </div>
-</template>
-
 <template name="analytics">
   <h2>Analytics</h2>
 
@@ -135,7 +107,7 @@
   <div class="container">
     <div class="row">
       <div>
-        <h1>Chat</h1>
+        <h1 class="pageTitle">Chat</h1>
       </div>
     </div>
   </div>

@@ -7,6 +7,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+h1,h2,h3 {
+    font-family: 'Arvo', serif;
+}
+
 .navbar {
 	background-color: #F3FBFE;
 }
@@ -41,4 +45,9 @@ a {
 
 .login-buttons-dropdown-align-right {
   float: right;
+}
+
+.pageTitle {
+  border-bottom: 3px solid orange;
+  //margin-bottom: 1em;
 }

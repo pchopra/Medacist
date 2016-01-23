@@ -37,22 +37,6 @@ if (Meteor.isClient) {
         }
       }
     }
-    
-    Template.register.events({
-        'submit form': function(event){
-            event.preventDefault();
-            var email = $('[name=email]').val();
-            var password = $('[name=password]').val();
-
-            Accounts.createUser({
-                email: email,
-                password: password
-            });
-
-            Router.go('/room');
-        }
-    });
-
 
     Template.newPatient.events({
       'click .newRoom': function() {
@@ -74,6 +58,12 @@ if (Meteor.isClient) {
             Meteor.logout();
             Router.go('home');
         }
+    });
+    
+    Template.main.helpers({        
+       name: function() {
+        return Meteor.user().profile.name;
+       }
     });
     
 
