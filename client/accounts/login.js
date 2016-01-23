@@ -1,16 +1,18 @@
-<template name="login">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 col-lg-offset-4">
-      <h2>Log In</h2>
-      <form id="login-form" action="action">
-        <div>
-          <input type="email" id="login-email" placeholder="Username"/>
-          <input type="password" id="login-password" placeholder="Password"/>
-          <input type="submit" id="login-button" value="Sign in" />
-       </div>
-      </form> 
-      </div>
-    </div>
-  </div>
-</template>
+Template.login.events({  
+    'submit #login': function(event, template) {        
+        var email = $('[name=email]').val(),
+            password = $('[name=password]').val();
+
+        Meteor.loginWithPassword(email, password, function(error) {            
+            if (Meteor.user()) {
+                Router.go('userRoom', { username: Meteor.userId() });
+            } else {
+                var message = "Erro: <strong>" + error.reason + "</strong>";
+                $('#form-messages').html(message);
+            }
+
+            return;
+        });
+        return false;
+    }
+});

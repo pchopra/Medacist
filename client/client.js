@@ -6,36 +6,36 @@ if (Meteor.isClient) {
         }
     });
 
-      Template.input.events = {
-      'keydown input#message' : function (event) {
-        if (event.which == 13) { // 13 is the enter key event
+    Template.input.events = {
+        'keydown input#message' : function (event) {
+            if (event.which == 13) { // 13 is the enter key event
 
-          //Temporarily taking the name of the new user 
-          var name = Session.get('username');
+                //Temporarily taking the name of the new user 
+                var name = Session.get('username');
 
-          var date = new Date( Date.now() ); 
+                var date = new Date( Date.now() ); 
 
-          /*
-          if (Meteor.user())
-            var name = Meteor.user().profile.name;
-          else
-            var name = 'Anonymous';
-          */
+                /*
+                if (Meteor.user())
+                var name = Meteor.user().profile.name;
+                else
+                var name = 'Anonymous';
+                */
 
-          var message = document.getElementById('message');
-          if (message.value != '') {
-            Messages.insert({
-              name: name,
-              text: message.value,
-              hour: date.getHours(),
-              minute: date.getMinutes()
-            });
+                var message = document.getElementById('message');
+                if (message.value != '') {
+                    Messages.insert({
+                      name: name,
+                      text: message.value,
+                      hour: date.getHours(),
+                      minute: date.getMinutes()
+                    });
 
-            document.getElementById('message').value = '';
-            message.value = '';
-          }
+                    document.getElementById('message').value = '';
+                    message.value = '';
+                }
+            }
         }
-      }
     }
 
     Template.newPatient.events({
@@ -51,18 +51,13 @@ if (Meteor.isClient) {
         Router.go('/room');
       }
     });
-
-    Template.main.events({
-        'click .logout': function(event){
-            event.preventDefault();
-            Meteor.logout();
-            Router.go('home');
-        }
-    });
     
     Template.main.helpers({        
        name: function() {
         return Meteor.user().profile.name;
+       },
+       userId: function() {
+        return Meteor.userId();
        }
     });
     

@@ -41,7 +41,7 @@
 
             <ul class="nav navbar-nav">
                 {{#if currentUser}}
-                    <li><a href="{{pathFor route='room'}}">Room</a></li>
+                    <li><a href="{{pathFor route='userRoom' username=userId }}">Room</a></li>
                     <li><a href="{{pathFor route='analytics'}}">Analytics</a></li>
                 {{/if}}
             </ul>
@@ -74,26 +74,8 @@
   </ul>
 </template>
 
-
-<template name="newPatient">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-4">
-        <h3>
-          Please enter new patient information:
-        </h3>
-        <input type="text" class="username" placeholder="Name">
-        <button type="button" class="newRoom"><a href="{{pathFor route='room'}}">Add New Room</a></button>
-      </div>
-    </div>
-  </div>
-  
-</template>
-
-<body></body>
-
 <template name="home">
-  {{> newPatient}}
+  Welcome
 </template>
 
 <template name="analytics">
