@@ -5,6 +5,9 @@ Template.messages.helpers({
     otherUser_messages: function() {
         return Messages.find({roomId: Router.current().params.roomId, userId: {$ne: Meteor.userId()} }, { sort: { time: -1}});
     },
+    all_messages: function() {
+        return Messages.find({roomId: Router.current().params.roomId}, { sort: { time: -1}});
+    },
     userId: function() {
         return Meteor.userId();
     }
@@ -13,7 +16,12 @@ Template.messages.helpers({
 Template.message.helpers({
     time_ago: function(t) {
         return moment(t).fromNow();
-    }    
+    },
+    eqCurrentUser: function(user) {
+        console.log("Sent user: "+user);
+        console.log("Logged user: "+Meteor.userId());
+        return (Meteor.userId() == user);
+    }
 });
 
 Template.input.events = {
