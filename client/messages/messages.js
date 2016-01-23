@@ -22,13 +22,13 @@ Template.input.events = {
             if (message != '') {
                 Messages.insert({
                     roomId: userId,
+                    userId: Meteor.userId(),
                     name: name,
                     text: message,
                     hour: date.getHours(),
                     minute: date.getMinutes()
                 });
-                //$('#message') = '';
-                //$('#message').value = '';
+                $('#message').val('');
             }
         }
     }
