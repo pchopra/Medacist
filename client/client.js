@@ -6,19 +6,29 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.input.events = {
+      Template.input.events = {
       'keydown input#message' : function (event) {
         if (event.which == 13) { // 13 is the enter key event
+
+          //Temporarily taking the name of the new user 
+          var name = Session.get('username');
+
+          var date = new Date( Date.now() ); 
+
+          /*
           if (Meteor.user())
-            var name = 'logged in'; //Meteor.user().profile.name;
+            var name = Meteor.user().profile.name;
           else
             var name = 'Anonymous';
+          */
+
           var message = document.getElementById('message');
           if (message.value != '') {
             Messages.insert({
               name: name,
-              message: message.value,
-              time: Date.now(),
+              text: message.value,
+              hour: date.getHours(),
+              minute: date.getMinutes()
             });
 
             document.getElementById('message').value = '';
@@ -44,13 +54,17 @@ if (Meteor.isClient) {
     });
 
 
-    Template.test.events({
+    Template.newPatient.events({
       'click .newRoom': function() {
+        console.log( $('.username').val() );
+        Session.set('username', $('.username').val() ); 
 
         Rooms.insert({
           hospitalID: 'default',
           name: $('.username').val(), 
         });
+
+        Router.go('/room');
       }
     });
 

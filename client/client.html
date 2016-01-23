@@ -1,17 +1,22 @@
 <head>
   <title>Meteor Chat Application.</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body>  
 </body>
 
+<!--
 <template name="messages">
   {{#each messages}}
     <strong>{{name}}:</strong> {{message}}<br>
   {{/each}}
 </template>
+-->
 
 <template name="input">
+  <h3>Send a new message:</h3> 
   <p>Message: <input type="text" id="message"></p>
 </template>
 
@@ -46,7 +51,7 @@
             {{#if currentUser}}
                 <li><a href="#" class="logout">Logout</a></li>
             {{else}}
-                <li><a href="{{pathFor route='login'}}">Login</a></li>
+                <li><a href="{{pathFor route='login'}}">Log In</a></li>
                 <li><a href="{{pathFor route='register'}}">Register</a></li>
             {{/if}}
             
@@ -72,11 +77,18 @@
 
 
 <template name="newPatient">
-  <p>
-    Please Enter New Patient Information
-  </p>
-  <input type="text" class="username" placeholder="Name">
-  <button class="newRoom"><a href="{{pathFor route='room'}}">ADD NEW ROOM</a></button>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-4">
+        <h3>
+          Please enter new patient information:
+        </h3>
+        <input type="text" class="username" placeholder="Name">
+        <button type="button" class="newRoom"><a href="{{pathFor route='room'}}">Add New Room</a></button>
+      </div>
+    </div>
+  </div>
+  
 </template>
 
 <body></body>
@@ -96,15 +108,20 @@
 </template>
 
 <template name="login">
-  <h2>Login</h2>
-  
-  <form id="login-form" action="action">
-    <div>
-      <input type="email" id="login-email" />
-      <input type="password" id="login-password" />
-      <input type="submit" id="login-button" value="Sign in" />
-   </div>
- </form> 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4">
+      <h2>Log In</h2>
+      <form id="login-form" action="action">
+        <div>
+          <input type="email" id="login-email" placeholder="Username"/>
+          <input type="password" id="login-password" placeholder="Password"/>
+          <input type="submit" id="login-button" value="Sign in" />
+       </div>
+      </form> 
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name="analytics">
@@ -115,7 +132,21 @@
 
 
 <template name="room">
-  <h1>Chat</h1>
-  {{> messages }}
-  {{> input }}  
+  <div class="container">
+    <div class="row">
+      <div>
+        <h1>Chat</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div>
+        {{> messages }}
+      </div>
+      <div>
+        {{> input }} 
+      </div>
+    </div>   
+  </div>
 </template>

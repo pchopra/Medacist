@@ -2,6 +2,43 @@ html {
   
 }
 
+body {
+	background-color: #F3FBFE;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+	background-color: #dfdfdf;
+}
+
+a {
+	color: #005555;
+}
+
+.inputtxt {
+	width: 100%;
+}
+
+.username {
+	margin-left: 40px;
+}
+
+.newRoom {
+	background-color: white;
+	text-decoration: none;
+	margin-left: 40px;
+}
+
+.newRoom:hover {
+	background-color: black; 
+	
+}
+
+.newRoom:hover a {
+	color: white;
+	text-decoration: none;
+}
+
 .login-buttons-dropdown-align-right {
   float: right;
 }
