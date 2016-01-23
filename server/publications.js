@@ -1,11 +1,10 @@
-//publish messages
-Meteor.publish("messages", function (role) {
-    switch(role) {
-        case 'assistant':
-            return Messages.find();
-        case 'patient':
-            return Messages.find({roomId: this.userId()});
-        default:
-            return false;
-    }
+Meteor.publish("messages", function() {
+  if ( Roles.userIsInRole( this.userId, 'assistant') ) {
+    return Messages.find();
+  } else if ( Roles.userIsInRole( this.userId, 'patient') ) {
+    return Messages.find({roomId: this.userId });
+  } else {
+    this.stop();
+    return
+  }
 });

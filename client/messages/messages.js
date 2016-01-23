@@ -1,4 +1,5 @@
-Meteor.subscribe("messages", Meteor.user().profile.role);
+
+Meteor.subscribe("messages");
 
 Template.messages.helpers({
     currentUser_messages: function() {
@@ -30,6 +31,7 @@ Template.input.events = {
             var message = $('#message').val();
             Meteor.call("addMessage", Router.current().params.roomId, message);
             $('#message').val('');
+            
         }
     }
 }
