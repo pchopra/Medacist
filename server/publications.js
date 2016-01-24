@@ -4,10 +4,13 @@
 
 Meteor.publish("messages", function() {
   if ( Roles.userIsInRole( this.userId, 'assistant') ) {
+    //console.log("assist");
     return Messages.find();
   } else if ( Roles.userIsInRole( this.userId, 'patient') ) {
+    //console.log("patient");
     return Messages.find({roomId: this.userId });
   } else {
+    //console.log("none");
     this.stop();
     return
   }

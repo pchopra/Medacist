@@ -19,9 +19,10 @@ Router.map(function() {
     this.route('/room/:roomId', {
         name: "userRoom",
         template: "room",
+      
         //waitOn: function() {
-        //  return Meteor.subscribe("allUserData");
-        //},
+        //  return Meteor.subscribe("messages");
+        //}
         //data: function() {
             //user = Accounts.
             //return Messages.find({name: this.params._username}, { sort: { time: -1}});

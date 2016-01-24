@@ -19,6 +19,7 @@ Template.register.events({
             }
           },  
           function(err) {
+            Meteor.subscribe("messages");
             if(err) {
               console.log(err);
               alert("Error in Registering. Please try again");
