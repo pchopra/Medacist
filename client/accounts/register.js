@@ -22,9 +22,7 @@ Template.register.events({
             if(err) {
               console.log(err);
               alert("Error in Registering. Please try again");
-            } else if(userType != 'administrator') {
-              //var newRoom = Meteor.call("addRoom", userId);
-              //alert(newRoom);
+            } else if(userType !== 'administrator') {
               Router.go('userRoom', { roomId: Meteor.userId() });
             } else {
               Router.go('home');
