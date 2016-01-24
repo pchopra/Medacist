@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
     
-    <h2 class="pageTitle">Register Patient</h2>
+    <h2 class="pageTitle">Register</h2>
   
     <form>
       <div class="form-group">
@@ -14,12 +14,14 @@
       <div class="form-group">
         <input type="password" class="form-control" placeholder="Password" name="password">
       </div>
-
-          <input type="radio" name="type-user1" value="patient"> Patient
-          <input type="radio" name="type-user1" value="assistant"> Assistant
-          <input type="radio" name="type-user1" value="physician"> Physician
-          <input type="radio" name="type-user1" value="administrator"> Administrator
-      <br>
+      <div class="form-group">
+        <select name="role" class="form-control">>
+          <option value="patient">Patient</option>
+          <option value="assistant">Assistant</option>
+          <option value="physician">Physician</option>
+          <option value="administrator">Administrator</option>
+        </select>
+      </div>
 
       <div class="form-group">
         <button type="submit" class="btn btn-default" value="Register">Register</button>

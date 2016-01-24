@@ -6,7 +6,7 @@ Template.register.events({
       var email = $('[name=email]').val();
       var password = $('[name=password]').val();
       var group = $('[name=group]').val();
-      var userType = $('input[name=type-user1]:checked').val();
+      var userType = $("[name=role]").val();
 
       Accounts.createUser({
           //username: name,
@@ -20,7 +20,6 @@ Template.register.events({
           },  
           function(err) {
             if(err) {
-              alert("Error in Registering");
               console.log(err);
             } else if(userType != 'administrator') {
               Router.go('userRoom', { roomId: Meteor.userId() });

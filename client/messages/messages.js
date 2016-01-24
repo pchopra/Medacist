@@ -1,13 +1,6 @@
-
 Meteor.subscribe("messages");
 
 Template.messages.helpers({
-    currentUser_messages: function() {
-        return Messages.find({roomId: Router.current().params.roomId, userId: Meteor.userId()}, { sort: { time: -1}});
-    },
-    otherUser_messages: function() {
-        return Messages.find({roomId: Router.current().params.roomId, userId: {$ne: Meteor.userId()} }, { sort: { time: -1}});
-    },
     all_messages: function() {
         return Messages.find({roomId: Router.current().params.roomId}, { sort: { time: -1}});
     },

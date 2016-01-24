@@ -18,10 +18,10 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 accounts-ui
 iron:router
-twbs:bootstrap
 accounts-password
 accounts-base
 alanning:roles
 chart:chart
 momentjs:moment
 matb33:collection-hooks
+huttonr:bootstrap3

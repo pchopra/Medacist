@@ -8,13 +8,19 @@ Meteor.methods({
     else if (message == '') {
       throw new Meteor.Error("empty-text");
     }
- 
+
     Messages.insert({
         roomId: roomId,
         userId: Meteor.userId(),
         name: Meteor.user().profile.name,
         text: message,
         created_at: new Date( Date.now() )
+    },  
+          function(err) {
+            if(err) {
+              alert("Error in posting");
+              console.log(err);
+          }
     });
-  },
+  }
 });

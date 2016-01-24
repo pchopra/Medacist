@@ -3,11 +3,9 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans|Arvo' rel='stylesheet' type='text/css'>
 </head>
 
-<body>  
-</body>
+<body></body>
 
 <template name="main">
-  
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -42,10 +40,10 @@
           
             <p class="navbar-text navbar-right">
                 {{#if currentUser}}
-                    Signed in as {{name}} | 
+                    {{role}} {{name}} | 
                     <a href="#" class="logout navbar-link">Logout</a>
                 {{else}}
-                    <a href="{{pathFor route='login'}}" class="navbar-link">Log In</a>
+                    <a href="{{pathFor route='login'}}" class="navbar-link">Log In</a> | 
                     <a href="{{pathFor route='register'}}" class="navbar-link">Register</a>
                 {{/if}}
             </p>
@@ -55,7 +53,6 @@
 
     <div class="container">
       {{> yield}}
-      <small class="pull-right">Copyright &copy; Medacist, 2016.</small>
     </div>
 </template>
 

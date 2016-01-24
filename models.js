@@ -4,12 +4,13 @@ Rooms = new Mongo.Collection('rooms');
 Meteor.users.after.insert(function (userId, doc) {
     console.log(doc);
     if (doc.profile.role === "administrator") {
-        Roles.addUsersToRoles(doc._id, "administrator")
+        Roles.addUsersToRoles(doc._id, "administrator");
     } else if (doc.profile.role === "patient") {
-        Roles.addUsersToRoles(doc._id, "patient")
+        Roles.addUsersToRoles(doc._id, "patient");
+        //Meteor.call("addRoom");
     } else if (doc.profile.role === "assistant") {
-    	Roles.addUsersToRoles(doc._id, "assistant") 
+    	Roles.addUsersToRoles(doc._id, "assistant"); 
     } else if (doc.profile.role === "physician") {
-    	Roles.addUsersToRoles(doc._id, "physician") 
+    	Roles.addUsersToRoles(doc._id, "physician");
     } 
 })
