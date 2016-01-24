@@ -15,12 +15,12 @@ Meteor.methods({
         userObj: Meteor.user(),
         text: message,
         created_at: new Date( Date.now() )
-    },  
-          function(err) {
+        },  
+        function(err) {
             if(err) {
               alert("Error in posting");
               console.log(err);
-          }
-    });
+            } 
+        });
   }
 });
