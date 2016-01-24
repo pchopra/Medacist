@@ -13,10 +13,10 @@ Template.message.helpers({
     time_ago: function(t) {
         return moment(t).fromNow();
     },
-    eqCurrentUser: function(user) {
-        console.log("Sent user: "+user);
-        console.log("Logged user: "+Meteor.userId());
-        return (Meteor.userId() == user);
+    eqCurrentUser: function(id) {
+        //console.log("Sent user: "+id);
+        //console.log("Logged user: "+Meteor.userId());
+        return (Meteor.userId() == id);
     }
 });
 
@@ -53,6 +53,11 @@ Template.input.events = {
         if (event.which == 13) { // 13 is the enter key event
             Meteor.call("addMessage", Router.current().params.roomId, $('#message').val());
             $('#message').val('');
+            //$('.submitBtn').scroll();
+          
+            $("body, html").animate({ 
+                scrollTop: $('.well').offset().top 
+            }, 200);
         }
     }
 }

@@ -11,16 +11,21 @@ Meteor.methods({
 
     Messages.insert({
         roomId: roomId,
-        userId: Meteor.userId(),
         userObj: Meteor.user(),
         text: message,
         created_at: new Date( Date.now() )
-        },  
-        function(err) {
+    },  
+          function(err) {
             if(err) {
               alert("Error in posting");
               console.log(err);
-            } 
-        });
+          }
+    });
+  },
+  
+  addRoom: function (user) {
+    Rooms.insert({
+      patiendId: user
+    });
   }
 });

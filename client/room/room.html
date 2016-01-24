@@ -6,26 +6,32 @@
     </div>
     <div>
     {{> input }} 
-
-    {{#if isInRole 'assistant'}}
-        {{> assistantPanel}}
-    {{/if}}
     
     </div>
 </template>
 
 <template name="input">
-  <div class="form-group">
-    <input type="button" class="submitBtn" value="Submit" style="float: right">
-    <div style="overflow: hidden; padding-right: .5em;">
-        <input class="form-control" placeholder="Enter message" id="message" type="text">
+ 
+  <div class="row well">
+    <div class="col-md-6">
+      <div class="form-group">
+        <div>
+            <input class="form-control" placeholder="Enter message" id="message" type="text">
+        </div>     
+      </div>
+    </div>
+    <div class="col-md-6">
+      <input type="button" class="btn btn-default" value="Submit">
+      {{#if isInRole 'assistant'}}
+          {{> assistantPanel}}
+      {{/if}}
     </div>
   </div>
 </template>
 
 <template name="assistantPanel">
     <div class="controlPanel">
-        <input type="button" class="specalistRequest" value="Requst Specalist">
-        <input type="button" class="hospitalRefer" value="Refer to Hospital"> 
+        <input type="button" class="btn btn-default specalistRequest" value="Requst Specalist">
+        <input type="button" class="btn btn-default hospitalRefer" value="Refer to Hospital"> 
     </div>
 </template>

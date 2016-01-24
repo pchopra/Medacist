@@ -1,7 +1,7 @@
-Meteor.publish("messages", function() {
-  return Messages.find();
-});
-/*
+//Meteor.publish("messages", function() {
+//  return Messages.find();
+//});
+
 Meteor.publish("messages", function() {
   if ( Roles.userIsInRole( this.userId, 'assistant') ) {
     return Messages.find();
@@ -12,7 +12,7 @@ Meteor.publish("messages", function() {
     return
   }
 });
-
+/*
 
 Meteor.publish("rooms", function() {
   if ( Roles.userIsInRole( this.userId, 'specialist') ) {

@@ -23,11 +23,13 @@ Template.register.events({
               console.log(err);
               alert("Error in Registering. Please try again");
             } else if(userType != 'administrator') {
+              //var newRoom = Meteor.call("addRoom", userId);
+              //alert(newRoom);
               Router.go('userRoom', { roomId: Meteor.userId() });
             } else {
               Router.go('home');
             }
-          });
+      });
 
   }
 });
