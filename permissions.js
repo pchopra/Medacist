@@ -12,7 +12,7 @@ Meteor.methods({
     Messages.insert({
         roomId: roomId,
         userId: Meteor.userId(),
-        name: Meteor.user().profile.name,
+        userObj: Meteor.user(),
         text: message,
         created_at: new Date( Date.now() )
     },  
