@@ -14,12 +14,18 @@ Meteor.methods({
         userObj: Meteor.user(),
         text: message,
         created_at: new Date( Date.now() )
-    },  
-          function(err) {
-            if(err) {
-              alert("Error in posting");
-              console.log(err);
-          }
+      },  
+      function(err) {
+        if(err) {
+          alert("Error in posting");
+          console.log(err);
+        }
+
+        // scroll to bottom
+        $("body, html").animate({ 
+            scrollTop: $(document).height()
+        }, 200);
+        $("#message").focus();
     });
   },
   

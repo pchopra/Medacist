@@ -21,20 +21,15 @@ Template.message.helpers({
 });
 
 Template.input.events = {
-    'click .submitBtn': function(){ 
-        
+    'click #submitBtn': function(){ 
             Meteor.call("addMessage", Router.current().params.roomId, $('#message').val());
             $('#message').val('');
     },
     'keydown input#message' : function (event) {
         if (event.which == 13) { // 13 is the enter key event
+          
             Meteor.call("addMessage", Router.current().params.roomId, $('#message').val());
             $('#message').val('');
-            //$('.submitBtn').scroll();
-          
-            $("body, html").animate({ 
-                scrollTop: $('.well').offset().top 
-            }, 200);
         }
     }
 }

@@ -1,0 +1,9 @@
+#chatBody {
+  padding-bottom: 55px;
+}
+
+#chatFooter {
+  border-top: thin solid #f3f3f3;
+  padding: 15px;
+  background-color: aliceblue;
+}

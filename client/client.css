@@ -1,9 +1,9 @@
 html {
-  
 }
 
 body {
 	font-family: 'Open Sans', sans-serif;
+    padding-top: 40px;
 }
 
 h1,h2,h3 {
@@ -14,3 +14,6 @@ h1,h2,h3 {
   border-bottom: 3px solid orange;
   //margin-bottom: 1em;
 }
+
+
+
