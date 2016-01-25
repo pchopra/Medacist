@@ -1,4 +1,14 @@
+Accounts.config({
+    forbidClientAccountCreation: true
+});
+
 Meteor.methods({
+  addUser: function(user) {    
+    //var pattern = { email: String, password: String };
+    //check(user, pattern);
+    Accounts.createUser(user);
+  },
+  
   addMessage: function (roomId, message) {
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
@@ -11,27 +21,33 @@ Meteor.methods({
 
     Messages.insert({
         roomId: roomId,
-        userObj: Meteor.user(),
+        userId: Meteor.userId(),
         text: message,
-        created_at: new Date( Date.now() )
+        createdAt: new Date( Date.now() )
       },  
       function(err) {
         if(err) {
-          alert("Error in posting");
+          //alert("Error in posting");
           console.log(err);
         }
-
-        // scroll to bottom
-        $("body, html").animate({ 
-            scrollTop: $(document).height()
-        }, 200);
-        $("#message").focus();
-    });
+      }
+    );
   },
   
-  addRoom: function (user) {
+  addRoom: function (user, org) {
+    //console.log("User: "+user);
+    //console.log("Org: "+org);
     Rooms.insert({
-      patiendId: user
-    });
+      userIds: [user],
+      orgId: org,
+      createdAt: new Date( Date.now() )
+      },  
+      function(err) {
+        if(err) {
+          //alert("Error in posting");
+          console.log("Error new room: "+err);
+        }
+      }
+    );
   }
 });

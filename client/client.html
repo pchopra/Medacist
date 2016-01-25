@@ -26,9 +26,10 @@
 
             <ul class="nav navbar-nav">
                 {{#if currentUser}}
-                
                     {{#if isInRole 'patient' 'physician' 'assistant'}}
-                      <li><a href="{{pathFor route='userRoom' roomId=userId }}">Room</a></li>
+                       {{#each userRooms}}
+                         <li><a href="{{pathFor route='userRoom' roomId=this._id }}">{{this.orgObj.name}}</a></li>
+                       {{/each}}
                     {{/if}}
 
                     {{#if isInRole 'administrator'}}
@@ -40,7 +41,7 @@
           
             <p class="navbar-text navbar-right">
                 {{#if currentUser}}
-                    {{role}} {{name}} | 
+                    {{userType}} {{name}} | 
                     <a href="#" class="logout navbar-link">Logout</a>
                 {{else}}
                     <a href="{{pathFor route='login'}}" class="navbar-link">Log In</a> | 

@@ -1,7 +1,7 @@
 <template name="register">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-    
+
     <h2 class="pageTitle">Register</h2>
   
     <form>
@@ -15,12 +15,20 @@
         <input type="password" class="form-control" placeholder="Password" name="password">
       </div>
       <div class="form-group">
-        <select name="role" class="form-control">>
+        <select name="utype" class="form-control">>
           <option value="patient">Patient</option>
           <option value="assistant">Assistant</option>
-          <option value="physician">Physician</option>
+          <option value="clinician">Clinician</option>
           <option value="administrator">Administrator</option>
         </select>
+      </div>
+      <div class="form-group">
+        <select name="org" class="form-control">>
+          {{#each all_orgs}}
+              <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
       </div>
 
       <div class="form-group">

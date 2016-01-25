@@ -1,11 +1,12 @@
 <template name="messages">
-    {{#each all_messages}}
-        {{> message }}
-    {{/each}}
+  {{#each all_messages}}
+      {{> message }}
+  {{/each}}
 </template>
 
 <template name="message">
- {{#if eqCurrentUser userObj._id }}
+
+ {{#if eqCurrentUser this.userId }}
    
     <div class="row">
      <div class="col-md-6">
@@ -14,7 +15,7 @@
           <a href="#" class="message_profile-pic"></a>
         </div>
         <div class="media-body">
-          <small class="message_timestamp pull-right"><strong>{{userObj.profile.role}}</strong><i> {{time_ago created_at}}</i></small>
+          <small class="message_timestamp pull-right"><strong>{{userObj.profile.userType}}</strong><i> {{time_ago createdAt}}</i></small>
           <h4 class="media-heading"><a href="" class="message_username">{{userObj.profile.name}}</a></h4>
           <p class="message_content">{{text}}</p>
         </div>
@@ -33,7 +34,7 @@
           <a href="#" class="message_profile-pic"></a>
         </div>
         <div class="media-body">
-          <small class="message_timestamp pull-right"><strong>{{userObj.profile.role}}</strong> <i>{{time_ago created_at}}</i></small>
+          <small class="message_timestamp pull-right"><strong>{{userObj.profile.userType}}</strong> <i>{{time_ago createdAt}}</i></small>
           <h4 class="media-heading"><a href="" class="message_username">{{userObj.profile.name}}</a></h4>
           <p class="message_content">{{text}}</p>
         </div>

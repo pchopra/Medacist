@@ -1,30 +1,19 @@
-//Meteor.publish("messages", function() {
-//  return Messages.find();
-//});
-
 Meteor.publish("messages", function() {
   if ( Roles.userIsInRole( this.userId, 'assistant') ) {
-    //console.log("assist");
     return Messages.find();
   } else if ( Roles.userIsInRole( this.userId, 'patient') ) {
-    //console.log("patient");
-    return Messages.find({roomId: this.userId });
+    return Messages.find();
+    //return Messages.find();
   } else {
-    //console.log("none");
     this.stop();
-    return
+    return;
   }
 });
-/*
+
+Meteor.publish("organizations", function() {
+  return Organizations.find();
+});
 
 Meteor.publish("rooms", function() {
-  if ( Roles.userIsInRole( this.userId, 'specialist') ) {
-    return Rooms.find( );
-  } else if ( Roles.userIsInRole( this.userId, 'patient') ) {
-    return Rooms.find({roomId: this.userId });
-  } else {
-    this.stop();
-    return
-  }
+  return Rooms.find({userIds: this.userId});
 });
-*/ 

@@ -1,0 +1,7 @@
+<template name="dashboard">
+  <h2 class="pageTitle">Dashboard</h2>
+  
+ {{#each userRooms}}
+   <a href="{{pathFor route='userRoom' roomId=this._id }}">{{this.orgObj.name}}</a>
+ {{/each}}
+</template>

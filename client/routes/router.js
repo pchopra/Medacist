@@ -6,6 +6,11 @@ Router.route('/', {
   template: 'home'
 });
 
+Router.route('/dashboard', {
+  name: 'dashboard',
+  template: 'dashboard'
+});
+
 // Auth
 Router.route('/register');
 Router.route('/login');
