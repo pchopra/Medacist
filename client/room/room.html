@@ -6,23 +6,20 @@
   </div>
 
   <div id="chatFooter" class="navbar navbar-fixed-bottom">
-      <div class="container">
-          <div class="navbar-collapse collapse" id="footer-body">
-            {{> input }} 
-          </div>
-      </div>
+     {{> input }} 
   </div>
 </template>
 
 <template name="input">
+  <div class="input-group">
+    <input class="form-control" placeholder="Enter message" id="message" type="text">
+    <span class="input-group-btn">
+      <button id="submitBtn" class="btn btn-default" type="button">Send</button>
+    </span>
+  </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="input-group">
-        <input class="form-control" placeholder="Enter message" id="message" type="text">
-        <span class="input-group-btn">
-          <button id="submitBtn" class="btn btn-default" type="button">Send</button>
-        </span>
-      </div>
+
     </div>
     <div class="col-md-6">
       {{#if isInRole 'assistant'}}
