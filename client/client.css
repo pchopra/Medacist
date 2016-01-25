@@ -2,8 +2,13 @@ html {
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
-    padding-top: 40px;
+	/*font-family: 'Open Sans', sans-serif;*/
+    padding-top: 50px;
+}
+
+nav {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
 }
 
 h1,h2,h3 {
@@ -12,7 +17,7 @@ h1,h2,h3 {
 
 .pageTitle {
   border-bottom: 3px solid orange;
-  //margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
 }
 
 

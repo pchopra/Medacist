@@ -16,9 +16,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
-          <a class="navbar-brand" href="{{pathFor route='home'}}">Medacist</a>
-
+          
+          {{#if currentUser}}
+            <a class="navbar-brand" href="{{pathFor route='dashboard'}}">Medacist</a>
+          {{else}}
+            <a class="navbar-brand" href="{{pathFor route='home'}}">Medacist</a>
+          {{/if}}
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +44,7 @@
           
             <p class="navbar-text navbar-right">
                 {{#if currentUser}}
-                    {{userType}} {{name}} | 
+                    <a href="{{pathFor route='dashboard'}}" class="navbar-link">{{name}}</a> | 
                     <a href="#" class="logout navbar-link">Logout</a>
                 {{else}}
                     <a href="{{pathFor route='login'}}" class="navbar-link">Log In</a> | 

@@ -24,6 +24,10 @@ Router.map(function() {
     this.route('/room/:roomId', {
         name: "userRoom",
         template: "room",
+        waitOn: function() {
+          return Meteor.subscribe('messages');
+        },
+        //cache: true 
       
         //waitOn: function() {
         //  return Meteor.subscribe("messages");

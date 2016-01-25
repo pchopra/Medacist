@@ -11,10 +11,12 @@ Meteor.users.after.insert(function (userId, doc) {
     } 
 });
 
-Messages.after.insert( function() {
-    $("body, html").animate({ 
-        scrollTop: $(document).height()
-    }, 200);
-    $('#message').val('');
-    $("#message").focus();
-});
+if (Meteor.isClient) {
+  Messages.after.insert( function() {
+      $("body, html").animate({ 
+          scrollTop: $(document).height()
+      }, 200);
+      $('#message').val('');
+      $("#message").focus();
+  });
+}

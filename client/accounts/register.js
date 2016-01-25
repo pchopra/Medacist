@@ -32,21 +32,20 @@ Template.register.events({
           userType:  $('[name=utype]').val()          
         }
       };
-    
-      console.log(user);
       
       Meteor.call('addUser', user, function(error) {
         if (error) {
           alert(error.reason);
         } else {
           Meteor.loginWithPassword(user.email, user.password, function(error) {
-            Meteor.subscribe("messages");
             if(error) {
               console.log(error);
             } else if(user.profile.userType == 'patient') {
+              Meteor.subscribe("messages");
               Meteor.call("addRoom", Meteor.userId(), user.profile.organization);
               Router.go('dashboard');
             } else {
+              Meteor.subscribe("messages");
               Router.go('dashboard');
             }
           });
