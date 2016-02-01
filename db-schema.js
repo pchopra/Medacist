@@ -180,3 +180,11 @@ Meteor.users.attachSchema(Schemas.User);
 Organizations.attachSchema(Schemas.Organization);
 Messages.attachSchema(Schemas.Message);
 Rooms.attachSchema(Schemas.Room);
+
+Meteor.startup(function () {
+    if (Organizations.find().count() === 0) {
+        Organizations.insert({name: "Hospital of University of Pennsylvania"});
+        Organizations.insert({name: "CHOP"});
+        Organizations.insert({name: "UCLA"});
+    }
+});
